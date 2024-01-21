@@ -1,0 +1,21 @@
+{
+	"protocol": "ymodem",
+	"baudrate": 115200,
+	"slave": {
+		"addr": 80,
+		"port": "/dev/tty.usbserial-14210"
+	},
+	"file": {
+		"name": "./foo.txt",
+		"symbol": "L072cbos.bin"
+	},
+	"test": {
+		"port": "/dev/tty.usbserial-1420"
+	},
+	"tx": {
+		"port": "/dev/ttys062"
+	},
+	"rx": {
+		"port": "/dev/tty.usbserial-14130"
+	}
+}

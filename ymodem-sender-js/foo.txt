@@ -1,0 +1,1 @@
+This is a sample file that I hope to send through YMODEM protocol.
