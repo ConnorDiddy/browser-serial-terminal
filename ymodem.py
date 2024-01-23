@@ -3,15 +3,12 @@ import os
 import sys
 import serial
 
-
 def printStdErr(*objs):
 #    print("", *objs, file=stderr)
     print("")
 
 def asbyte(v):
     return chr(v & 0xFF)
-
-
 
 class LightYModem:
     """
@@ -126,9 +123,12 @@ class LightYModem:
         output: a stream for output messages
         """
 
+        # Get the file size
         file.seek(0, os.SEEK_END)
         size = file.tell()
         file.seek(0, os.SEEK_SET)
+        
+        # Send the header
         response = self.send_filename_header("binary", size)
         while response==LightYModem.ack:
             response = self.send_packet(file, output)
@@ -141,10 +141,10 @@ class LightYModem:
 
 
 
-def ymodem(args):
-    port = args[1]
-    filename = args[2]
-    ser = serial.Serial(port, baudrate=28800)
+def ymodem():
+    port = "/dev/ttys006"
+    filename = "./ymodem-sender-js/foo.txt"
+    ser = serial.Serial(port, baudrate=115200)
     file = open(filename, 'rb')
     result = LightYModem().transfer(file, ser, sys.stderr)
     file.close()
@@ -158,4 +158,4 @@ def ymodem(args):
     print("Done")
 
 if __name__ == '__main__':
-    ymodem(sys.argv)
+    ymodem()

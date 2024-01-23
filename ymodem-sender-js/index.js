@@ -421,9 +421,12 @@ async function main () {
 
     console.log("Open port");
 
+    /*
     let port = new SerialPort(Config.slave.port, {
         baudRate: Config.baudrate
     });
+    */
+   
 
     port.on("data", (data) => {
         emData.emit("data", data);

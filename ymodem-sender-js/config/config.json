@@ -3,7 +3,7 @@
 	"baudrate": 115200,
 	"slave": {
 		"addr": 80,
-		"port": "/dev/tty.usbserial-14210"
+		"port": "/dev/ttyS6"
 	},
 	"file": {
 		"name": "./foo.txt",
